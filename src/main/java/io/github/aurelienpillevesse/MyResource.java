@@ -31,7 +31,7 @@ public class MyResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String getStock(
-    	@QueryParam("isbn") int isbn
+    	@DefaultValue("-1") @QueryParam("isbn") int isbn
     ) {
     	//database connexion
     	//get request : stock where isbn = :isbn
