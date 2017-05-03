@@ -42,9 +42,9 @@ public class MyResource {
     public String getStock(Book b) {
     	DAO<Book> dao = new BookDAO();
     	
-    	String output = b.getIsbn() + " " + b.getStock() + ";";
+    	String output = b.toString() + ";";
 		b = dao.find(b.getIsbn());
-		output += b.getIsbn() + " " + b.getStock();
+		output += b.toString();
     	return output;
 		//return b;
     	//database connexion
