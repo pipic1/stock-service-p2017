@@ -18,6 +18,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import io.github.aurelienpillevesse.dao.BookDAO;
+import io.github.aurelienpillevesse.dao.DAO;
 import io.github.aurelienpillevesse.model.Book;
 
 import javax.ws.rs.Consumes;
@@ -39,7 +40,7 @@ public class MyResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public String getStock(Book b) {
-    	BookDAO dao = new BookDAO(b);
+    	DAO<Book> dao = new BookDAO();
     	
     	String output = b.toString() + ";";
     	
