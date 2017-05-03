@@ -34,8 +34,8 @@ public class MyResource {
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String getStock(Book b) {
-    	return String.valueOf(b.getIsbn());
+    public Book getStock(Book b) {
+    	return b;
     	//database connexion
     	//get request : stock where isbn = :isbn
     	
