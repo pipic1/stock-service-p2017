@@ -22,10 +22,8 @@ public class BookDAO extends DAO<Book> {
 
 	public Book find(String isbn) {
 		Book book = new Book();
-		book.setIsbn(isbn);
-		return book;
 		
-		/*try {
+		try {
 			this.st = this.connect.prepareStatement("select * from books where isbn = ?");
 			this.st.setString(1, isbn);
 			this.rs = this.st.executeQuery();
@@ -39,6 +37,6 @@ public class BookDAO extends DAO<Book> {
 			e.printStackTrace();
 		}
 		
-		return book;*/
+		return book;
 	}
 }
