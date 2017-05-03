@@ -15,6 +15,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
+import io.github.aurelienpillevesse.model.Book;
+
 import javax.ws.rs.DefaultValue;
 
 /**
@@ -31,8 +34,8 @@ public class MyResource {
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String getStock(String x) {
-    	return x;
+    public String getStock(Book b) {
+    	return String.valueOf(b.getIsbn());
     	//database connexion
     	//get request : stock where isbn = :isbn
     	
