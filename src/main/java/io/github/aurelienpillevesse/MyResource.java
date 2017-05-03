@@ -69,9 +69,4 @@ public class MyResource {
     	//verification si isbn faux
         
     }
-    
-    private static Connection getConnection() throws URISyntaxException, SQLException {
-        String dbUrl = System.getenv("JDBC_DATABASE_URL");
-        return DriverManager.getConnection(dbUrl);
-    }
 }
