@@ -37,6 +37,9 @@ public class BookDAO extends DAO<Book> {
 			e.printStackTrace();
 		}
 		
+		book.setIsbn(10);
+		book.setStock(10);
+		
 		return book;
 	}
 }
