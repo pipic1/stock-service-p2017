@@ -39,7 +39,7 @@ public class MyResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public String getStock(Book b) {
-    	BookDAO dao = new BookDAO();
+    	BookDAO dao = new BookDAO(b);
     	
     	String output = b.toString() + ";";
     	
