@@ -40,8 +40,8 @@ public class MyResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Book getStock(Book b) {
-    	//DAO<Book> dao = new BookDAO();
-		//b = dao.find(b.getIsbn());
+    	DAO<Book> dao = new BookDAO();
+		b = dao.find(b.getIsbn());
 		
     	return b;
     	//database connexion
