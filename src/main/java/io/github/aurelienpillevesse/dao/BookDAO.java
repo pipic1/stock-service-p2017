@@ -25,7 +25,7 @@ public class BookDAO extends DAO<Book> {
 		
 		try {
 			this.st = this.connect.prepareStatement("select * from books where isbn = ?");
-			this.st.setString(1, isbn);
+			/*this.st.setString(1, isbn);
 			book.setIsbn("haha");
 			this.rs = this.st.executeQuery();
 			while (rs.next()) {
@@ -33,7 +33,7 @@ public class BookDAO extends DAO<Book> {
 				//book.setStock(this.rs.getInt("stock"));
 			}
 			this.rs.close();
-			this.st.close();
+			this.st.close();*/
 		} catch (Exception e) {
 			book.setIsbn(e.toString());
 			e.printStackTrace();
