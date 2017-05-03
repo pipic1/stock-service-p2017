@@ -27,11 +27,11 @@ public class BookDAO extends DAO<Book> {
 			this.st = this.connect.prepareStatement("select * from books where isbn = ?");
 			this.st.setString(1, isbn);
 			book.setIsbn(this.st.toString());
-			this.rs = this.st.executeQuery();
+			/*this.rs = this.st.executeQuery();
 			while (rs.next()) {
 				book.setIsbn(this.rs.getString("isbn"));
 				book.setStock(this.rs.getInt("stock"));
-			}
+			}*/
 			this.rs.close();
 			this.st.close();
 		} catch (Exception e) {
