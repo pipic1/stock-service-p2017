@@ -41,10 +41,11 @@ public class MyResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public String getStock(Book b) {
     	DAO<Book> dao = new BookDAO();
+    	Book book = null;
     	
     	String output = b.toString() + ";";
-		b = dao.find(b.getIsbn());
-		output += b.toString();
+		book = dao.find(b.getIsbn());
+		output += book.toString();
     	return output;
 		//return b;
     	//database connexion
