@@ -1,12 +1,27 @@
 package io.github.aurelienpillevesse.dao;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import io.github.aurelienpillevesse.model.Book;
 
-public class BookDAO extends DAO<Book> {
-	public BookDAO() {
-		super();
-	}
+public class BookDAO {
+	protected Connection connect = null;
+    protected ResultSet rs = null;
+	protected PreparedStatement st = null;
+
+    public BookDAO(){
+        String dbUrl = System.getenv("JDBC_DATABASE_URL");
+        try {
+			this.connect = DriverManager.getConnection(dbUrl);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
 
 	public boolean create(Book object) {
 		return false;
