@@ -30,14 +30,13 @@ public class MyResource {
      * @return String that will be returned as a text/plain response.
      */
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String getStock(
-    	@DefaultValue("-1") @QueryParam("isbn") int isbn
-    ) {
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getStock(String x) {
+    	return x;
     	//database connexion
     	//get request : stock where isbn = :isbn
     	
-    	ResultSet rs = null;
+    	/*ResultSet rs = null;
     	PreparedStatement st = null;
     	int stock = 0;
     	
@@ -52,9 +51,9 @@ public class MyResource {
 			st.close();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
     	
-    	return "stock de livre pour l'isbn " + isbn + ": " + stock;
+    	//return "stock de livre pour l'isbn " + isbn + ": " + stock;
     	
     	//verification si isbn faux
         
