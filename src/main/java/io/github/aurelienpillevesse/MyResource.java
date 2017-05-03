@@ -38,6 +38,7 @@ public class MyResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Book getStock(Book b) {
+    	b.setStock(14);
     	return b;
     	//database connexion
     	//get request : stock where isbn = :isbn
