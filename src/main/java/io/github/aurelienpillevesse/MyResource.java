@@ -44,7 +44,7 @@ public class MyResource {
     	Book book = null;
 		book = dao.find(b.getIsbn());
 		
-    	return b;
+    	return book;
     	//database connexion
     	//get request : stock where isbn = :isbn
     	
