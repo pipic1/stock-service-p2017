@@ -44,7 +44,9 @@ public class MyResource {
     	Book book = null;
     	
     	String output = b.toString() + ";";
+    	
 		book = dao.find(b.getIsbn());
+		
 		output += book.toString();
     	return output;
 		//return b;
