@@ -39,16 +39,11 @@ public class MyResource {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public String getStock(Book b) {
-    	DAO<Book> dao = new BookDAO();
-    	
-    	String output = b.toString() + ";";
-    	
+    public Book getStock(Book b) {
+    	DAO<Book> dao = new BookDAO();    	
 		b = dao.find(b.getIsbn());
 		
-		output += b.toString();
-    	return output;
-		//return b;
+    	return b;
     	//database connexion
     	//get request : stock where isbn = :isbn
     	
