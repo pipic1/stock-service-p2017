@@ -14,9 +14,9 @@ public class BookDAO {
 	protected PreparedStatement st = null;
 
     public BookDAO(){
-        String dbUrl = System.getenv("JDBC_DATABASE_URL");
+        //String dbUrl = System.getenv("JDBC_DATABASE_URL");
         try {
-			this.connect = DriverManager.getConnection(dbUrl);
+			this.connect = DriverManager.getConnection("postgres://sravfdspfvqyrc:7737a286eb833d0fb3a9d778b5da20847e7a49064acd7e4a170d2e8367aa8332@ec2-54-228-235-185.eu-west-1.compute.amazonaws.com:5432/d8idsnbp0ajcc9");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
