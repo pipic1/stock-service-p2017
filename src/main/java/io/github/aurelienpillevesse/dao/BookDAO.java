@@ -35,7 +35,7 @@ public class BookDAO extends DAO<Book> {
 			this.rs.close();
 			this.st.close();
 		} catch (Exception e) {
-			book.setIsbn(e.toString());
+			book.setIsbn(e.getMessage());
 			e.printStackTrace();
 		}
 		
