@@ -41,10 +41,9 @@ public class MyResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public Book getStock(Book b) {
     	DAO<Book> dao = new BookDAO();
-    	Book book = null;
-		book = dao.find(b.getIsbn());
+		b = dao.find(b.getIsbn());
 		
-    	return book;
+    	return b;
     	//database connexion
     	//get request : stock where isbn = :isbn
     	
