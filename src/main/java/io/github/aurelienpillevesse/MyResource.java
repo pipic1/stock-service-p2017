@@ -17,6 +17,8 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import io.github.aurelienpillevesse.dao.BookDAO;
+import io.github.aurelienpillevesse.dao.DAO;
 import io.github.aurelienpillevesse.model.Book;
 
 import javax.ws.rs.Consumes;
@@ -38,7 +40,9 @@ public class MyResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Book getStock(Book b) {
-    	b.setStock(14);
+    	DAO<Book> dao = new BookDAO();
+		b = dao.find(b.getIsbn());
+		
     	return b;
     	//database connexion
     	//get request : stock where isbn = :isbn
