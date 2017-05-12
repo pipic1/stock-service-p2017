@@ -31,10 +31,12 @@ public class BookDAO extends DAO<Book> {
 				book.setIsbn(this.rs.getString("isbn"));
 				book.setStock(this.rs.getInt("stock"));
 			}
-			this.rs.close();
-			this.st.close();
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+		    try { this.st.close(); } catch (Exception e) { /* ignored */ }
+		    try { this.rs.close(); } catch (Exception e) { /* ignored */ }
+		    try { this.connect.close(); } catch (Exception e) { /* ignored */ }
 		}
 		
 		return book;
