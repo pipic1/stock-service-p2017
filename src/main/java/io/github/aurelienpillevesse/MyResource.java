@@ -44,29 +44,7 @@ public class MyResource {
 		b = dao.find(b.getIsbn());
 		
     	return b;
-    	//database connexion
-    	//get request : stock where isbn = :isbn
     	
-    	/*ResultSet rs = null;
-    	PreparedStatement st = null;
-    	int stock = 0;
-    	
-    	try {		
-			st = getConnection().prepareStatement("select * from books where isbn = ?");
-			st.setInt(1, isbn); 
-			rs = st.executeQuery();
-			while (rs.next()) {
-				stock = rs.getInt("stock");
-			}
-			rs.close();
-			st.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}*/
-    	
-    	//return "stock de livre pour l'isbn " + isbn + ": " + stock;
-    	
-    	//verification si isbn faux
-        
+    	//retourne message "invalid" si pas bon
     }
 }
