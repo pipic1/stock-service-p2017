@@ -45,7 +45,7 @@ public class MyResource {
     	CustomResponse cr = new CustomResponse();
 		b = dao.find(b.getIsbn());
 		
-    	if(b.getStock() == 0) {
+    	if(b.getIsbn() == null) {
     		cr.setData(null);
     		cr.setMessage("invalid");
     		return Response.status(404).entity(cr).build();
