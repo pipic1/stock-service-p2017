@@ -40,10 +40,11 @@ public class MyResource {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response getStock(Book b) {
+    public Response getStock(String isbn) {
     	DAO<Book> dao = new BookDAO();
     	CustomResponse cr = new CustomResponse();
-		b = dao.find(b.getIsbn());
+    	Book b = new Book();
+		b = dao.find(isbn);
 		
     	if(b.getIsbn() == null) {
     		cr.setData(null);
