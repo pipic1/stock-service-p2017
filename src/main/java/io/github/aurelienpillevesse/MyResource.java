@@ -20,6 +20,7 @@ import javax.ws.rs.core.Response;
 import io.github.aurelienpillevesse.dao.BookDAO;
 import io.github.aurelienpillevesse.dao.DAO;
 import io.github.aurelienpillevesse.model.Book;
+import io.github.aurelienpillevesse.model.CustomResponse;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DefaultValue;
@@ -39,12 +40,19 @@ public class MyResource {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Book getStock(Book b) {
-    	DAO<Book> dao = new BookDAO();    	
+    public Response getStock(Book b) {
+    	DAO<Book> dao = new BookDAO();
+    	CustomResponse cr = new CustomResponse();
 		b = dao.find(b.getIsbn());
 		
-    	return b;
+    	if(b.getStock() == 0) {
+    		cr.setData(null);
+    		cr.setMessage("invalid");
+    		return Response.status(404).entity(cr).build();
+    	}
     	
-    	//retourne message "invalid" si pas bon
+    	cr.setData(b);
+    	cr.setMessage("valid");
+    	return Response.status(200).entity(cr).build();
     }
 }
