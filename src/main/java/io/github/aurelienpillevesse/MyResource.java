@@ -24,6 +24,7 @@ import io.github.aurelienpillevesse.model.CustomResponse;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DefaultValue;
+import javax.ws.rs.FormParam;
 
 /**
  * Root resource (exposed at "bookStock" path)
@@ -40,7 +41,7 @@ public class MyResource {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response getStock(String isbn) {
+    public Response getStock(@DefaultValue("-1") @FormParam("isbn") String isbn) {
     	DAO<Book> dao = new BookDAO();
     	CustomResponse cr = new CustomResponse();
     	Book b = new Book();
