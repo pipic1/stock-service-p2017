@@ -37,20 +37,21 @@ public class UpdateStock {
 		JSONParser parser = new JSONParser();
 		String isbn;
 		int quantity;
+		int stock;
 		
 		try{
 	         Object obj = parser.parse(jsonRecevied);
 	         JSONObject obj2 = (JSONObject) obj;
+	         
 	         isbn = (String) obj2.get("isbn");
-	         
 	         quantity = (int) (long) obj2.get("quantity");
-	         
-	     }	catch(ParseException pe){
+	         stock = (int) (long) obj2.get("stock");
+	    } catch(ParseException pe){
 			return pe.getMessage();
-	     }
+	    }		
 		
 		DAO<Book> dao = new BookDAO();
-		dao.updateStock(isbn, quantity);
+		dao.updateStock(isbn, 5);
 		
 		return "aha";
 		//return done or not done to wholesealer
