@@ -32,9 +32,10 @@ public class UpdateStock {
 	@PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public String UpdateStockFromWS(String jsonRecevied)
+    public Response UpdateStockFromWS(String jsonRecevied)
 	{		
 		JSONParser parser = new JSONParser();
+		CustomResponse cr = new CustomResponse();
 		String isbn;
 		int quantity;
 		int stock;
@@ -47,15 +48,18 @@ public class UpdateStock {
 	         quantity = (int) (long) obj2.get("quantity");
 	         stock = (int) (long) obj2.get("stock");
 	    } catch(ParseException pe){
-			return pe.getMessage();
+			cr.setData(null);
+			cr.setMessage("error json");
+			
+			return Response.status(400).entity(cr).build();
 	    }		
 		
 		DAO<Book> dao = new BookDAO();
 		dao.updateStock(isbn, 5);
 		
-		return "aha";
-		//return done or not done to wholesealer
+		cr.setData(null);
+		cr.setMessage("done");
 		
-		
+		return Response.status(200).entity(cr).build();		
 	}	
 }
