@@ -49,6 +49,9 @@ public class UpdateStock {
 			return pe.getMessage();
 	     }
 		
+		DAO<Book> dao = new BookDAO();
+		dao.updateStock(isbn, quantity);
+		
 		return quantity + " " + isbn;
 		
 		//appeller le stockservice pour ajouter la quantity nécessaire à la commande +5

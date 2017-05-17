@@ -41,7 +41,7 @@ public abstract class DAO<T> {
     * @param object
     * @return boolean
     */
-    public abstract void updateStock(T object);
+    public abstract void updateStock(String isbn, int stock);
 
     /**
     * Search by isbn
