@@ -32,7 +32,7 @@ public class UpdateStock {
 	@PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public String BuyWholesaler(String jsonRecevied)
+    public String UpdateStockFromWS(String jsonRecevied)
 	{		
 		JSONParser parser = new JSONParser();
 		String isbn;
@@ -52,10 +52,8 @@ public class UpdateStock {
 		DAO<Book> dao = new BookDAO();
 		dao.updateStock(isbn, quantity);
 		
-		return quantity + " " + isbn;
-		
-		//appeller le stockservice pour ajouter la quantity nécessaire à la commande +5
-		//call stock service
+		return "aha";
+		//return done or not done to wholesealer
 		
 		
 	}	
