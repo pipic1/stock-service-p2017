@@ -38,10 +38,9 @@ public class MyResource {
      *
      * @return String that will be returned as a text/plain response.
      */
-    @POST
+    @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response getStock(String isbn) {
+    public Response getStock(@DefaultValue("-1") @QueryParam("isbn") String isbn) {
     	DAO<Book> dao = new BookDAO();
     	CustomResponse cr = new CustomResponse();
     	Book b = new Book();
